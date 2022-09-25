@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Admin{% endblock %} 
+{% block content%}
+    <h2 >Booking History</h2>
+</br>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">Brand</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Color</th>
+                  <th scope="col">City</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for rent in rental %}
+                    <tr>
+                    <th scope="row">{{ rented.brand }}</th>
+                    <td>{{ rent.name }}</td>
+                    <td>{{ rent.color }}</td>
+                    <td>{{ rent.location }}</td>
+                    <td>{{ rent.date_posted }}</td>
+                    </tr>
+                {% endfor%}
+        </table>
+
+        <a href="{{ url_for('views.rental')}}" class="btn btn-outline-secondary btn-sm">Back to Home</a>
+    
+{% endblock %} 

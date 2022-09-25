@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}Create Entry{% endblock %} {% block content
+    %}
+    <h1 align="center">Add New Car</h1>
+
+    <form action= "/create_car" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.brand.label(class="form-label")}}
+        {{form.brand(
+            class="form-control"
+                  )}}
+        </br>
+        {{ form.name.label(class="form-label")}}
+        {{form.name(
+            class="form-control"
+                 )}}
+        </br>
+        {{ form.color.label(class="form-label")}}
+        {{form.color(
+            class="form-control"
+                  )}}
+        </br>
+        {{ form.location.label(class="form-label")}}
+        {{form.location(
+            class="form-control"
+            
+        )}}
+        </br>
+        {{form.submit(class="btn btn-secondary btn-submit") }}
+    </form>
+
+
+
+    {% endblock %} 

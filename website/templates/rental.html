@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Admin{% endblock %} 
+{% block content%}
+    <h1 align="center">Blog Posts...</h1>
+</br>
+    <div class="row">
+        {% for car in rental %}
+        <div class="col col-lg-5 shadow p-3 mb-5 bg-body rounded">
+            <h3>{{ car.brand }}</h3></br>
+            {{ car.name }}</br>
+            {{ car.color }}</br>
+            {{ car.location }}</br>
+            {{ car.date_posted }}</br></br>
+
+            <form action="/history" method="POST">
+                <a href= "{{ url_for('views.history')}}"
+            class=" btn btn-outline-secondary btn-sm">Book Now</a> 
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %} 

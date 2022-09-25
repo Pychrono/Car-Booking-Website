@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block title %}Admin{% endblock %} {% block content
+    %}
+    <h3>Dashboard</h3>
+
+    <div class="card">
+        <div class="card-header">
+            Hello {{ current_user.user_name}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Welcome to Your User Dashboard...</h5>
+          <p class="card-text">
+            <strong>Username:</strong>
+            {{ current_user.user_name}}</br>
+
+            <strong>FullName: </strong>
+            {{ current_user.full_name}}</br>
+
+            <strong>Email: </strong>
+            {{ current_user.email}}</br>
+
+            <strong>Age: </strong>
+            {{ current_user.age}}</br>
+
+            <strong>Date Joined: </strong>
+            {{ current_user.date_created}}</br>
+          </p>
+          <a href="/logout" class="btn btn-secondary btn-sm">Logout</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Update Profile
+            </div>
+            <div class="card-body">
+        
+                <form action= "/dashboard" method="POST">
+                    {{ form.hidden_tag() }}
+                    {{ form.user_name.label(class="form-label")}}
+                    {{form.user_name(
+                        class="form-control",
+                        value=name_to_update.user_name
+                    )}}
+                    </br>
+                    {{ form.full_name.label(class="form-label")}}
+                    {{form.full_name(
+                        class="form-control",
+                        value=name_to_update.full_name
+                    )}}
+                    </br>
+                    {{ form.email.label(class="form-label")}}
+                    {{form.email(
+                        class="form-control",
+                        value=name_to_update.email
+                    )}}
+                    </br>
+                    {{ form.age.label(class="form-label")}}
+                    {{form.age(
+                        class="form-control",
+                        value=name_to_update.age
+                    )}}
+                    </br>
+                    {{form.submit(class="btn btn-secondary btn-submit") }}
+                </form>
+            
+            </div>
+          </div>
+
+      </div>
+
+
+
+
+{% endblock %}
